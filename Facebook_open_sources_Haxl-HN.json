@@ -1,0 +1,686 @@
+[
+  {
+    "id": "7874285",
+    "username": "AaronFriel",
+    "timestamp": "2014-06-10T18:08:43",
+    "text": "This is a fascinating project. Haxl is the brainchild of former Glasgow Haskell Compiler lead* Simon Marlow.\nThe tl;dr of Haxl: what if you could describe accessing a data store (a la SQL) and have the compiler and library work together to \"figure out\" the most efficient way to perform queries, including performing multiple queries in parallel? That's what Haxl does, it allows you to specify the \"shape\" of your query, the type checker verifies its correctness, and the library executes it in parallel for you, without the developer having to know about synchronizing access or anything.\nHere's a link to their paper (PDF): [http://www.haskell.org/wikiupload/c/cf/The_Haxl_Project_at_F...](http://www.haskell.org/wikiupload/c/cf/The_Haxl_Project_at_Facebook.pdf)\n* - I am not sure if he's still committing, or if he's only doing application development. His accomplishments in Haskell land though, are many.\nEdited: I removed my comment about GitHub issues, seems it's a known problem. :)",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7874750",
+    "username": "vamega",
+    "timestamp": "2014-06-10T19:25:23",
+    "text": "He also wrote a book called Parallel and Concurrent Programming in Haskell[1], which I've heard is an excellent read[2].\n[1] [http://chimera.labs.oreilly.com/books/1230000000929](http://chimera.labs.oreilly.com/books/1230000000929)\n[2] [http://www.serpentine.com/blog/2014/03/18/book-review-parall...](http://www.serpentine.com/blog/2014/03/18/book-review-parallel-and-concurrent-programming-in-haskell/)",
+    "indent_level": 1,
+    "parent_id": "7874285",
+    "root_id": null
+  },
+  {
+    "id": "7875101",
+    "username": "freyrs3",
+    "timestamp": "2014-06-10T20:26:18",
+    "text": "It's a great read indeed. If anyone is interested in more concrete applications of Haskell then a read through this should be enough to convince anyone that we can do some really amazing parallel programming on top of Haskell's RTS.",
+    "indent_level": 2,
+    "parent_id": "7874750",
+    "root_id": "7874285"
+  },
+  {
+    "id": "7874619",
+    "username": "simonmar",
+    "timestamp": "2014-06-10T19:03:04",
+    "text": "He is still committing, but not quite so often :)",
+    "indent_level": 1,
+    "parent_id": "7874285",
+    "root_id": null
+  },
+  {
+    "id": "7892996",
+    "username": "Evgeny",
+    "timestamp": "2014-06-14T15:54:15",
+    "text": "Is it a cultural reference? Found it in bestcomments, so looks like many people do get it, but I don't. Genuinely interested having English as a second language.",
+    "indent_level": 2,
+    "parent_id": "7874619",
+    "root_id": "7874285"
+  },
+  {
+    "id": "7875951",
+    "username": "efnx",
+    "timestamp": "2014-06-10T23:50:53",
+    "text": "I see what you did there, haha.",
+    "indent_level": 2,
+    "parent_id": "7874619",
+    "root_id": "7874285"
+  },
+  {
+    "id": "7878249",
+    "username": "thisisdave",
+    "timestamp": "2014-06-11T14:46:49",
+    "text": "I feel like I'm missing something.\nI haven't used databases much, but don't most SQL implementations already \"figure out\" the most efficient way to perform queries? Can't most implementations already perform queries in parallel?",
+    "indent_level": 1,
+    "parent_id": "7874285",
+    "root_id": null
+  },
+  {
+    "id": "7878344",
+    "username": "AaronFriel",
+    "timestamp": "2014-06-11T15:04:00",
+    "text": "Yes, but this is designed for non-SQL datastores, and arbitrary application code connecting portions of \"data acquisition\" and \"data operation\". Imagine if instead of an ORM, you had a single system that weaved together your application code and the database queries, and ensured that where they could execute in parallel, they did.",
+    "indent_level": 2,
+    "parent_id": "7878249",
+    "root_id": "7874285"
+  },
+  {
+    "id": "7878906",
+    "username": "thisisdave",
+    "timestamp": "2014-06-11T16:36:17",
+    "text": "That makes sense.  Thanks",
+    "indent_level": 3,
+    "parent_id": "7878344",
+    "root_id": "7874285"
+  },
+  {
+    "id": "7874370",
+    "username": "carlio",
+    "timestamp": "2014-06-10T18:20:32",
+    "text": "GitHub is currently having problems - [https://twitter.com/githubstatus](https://twitter.com/githubstatus)",
+    "indent_level": 1,
+    "parent_id": "7874285",
+    "root_id": null
+  },
+  {
+    "id": "7888031",
+    "username": "emmanueloga_",
+    "timestamp": "2014-06-13T10:05:54",
+    "text": "reminds me of [http://ql.io/](http://ql.io/) (which does not seem to have taken off... last commit:  Apr 24, 2013).",
+    "indent_level": 1,
+    "parent_id": "7874285",
+    "root_id": null
+  },
+  {
+    "id": "7877387",
+    "username": "pjc50",
+    "timestamp": "2014-06-11T11:29:42",
+    "text": "Isn't that what an SQL query planner does?",
+    "indent_level": 1,
+    "parent_id": "7874285",
+    "root_id": null
+  },
+  {
+    "id": "7878351",
+    "username": "AaronFriel",
+    "timestamp": "2014-06-11T15:04:57",
+    "text": "Yes, but this is for non-SQL systems, and it does quite a bit more. It's more like an ORM in this respect, because it weaves together the query planning and processing part which handles retrieving data, and the execution of operating on that data.",
+    "indent_level": 2,
+    "parent_id": "7877387",
+    "root_id": "7874285"
+  },
+  {
+    "id": "7874979",
+    "username": "simonmar",
+    "timestamp": "2014-06-10T20:05:31",
+    "text": "Here's our paper about the ideas behind Haxl: [http://community.haskell.org/~simonmar/papers/haxl-icfp14.pd...](http://community.haskell.org/~simonmar/papers/haxl-icfp14.pdf)",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7875768",
+    "username": "seanmcdirmid",
+    "timestamp": "2014-06-10T22:56:53",
+    "text": "Somehow I think this should have been upvoted to the top.",
+    "indent_level": 1,
+    "parent_id": "7874979",
+    "root_id": null
+  },
+  {
+    "id": "7876111",
+    "username": "untothebreach",
+    "timestamp": "2014-06-11T00:52:54",
+    "text": "Simon Marlow and Sean McDirmid in the same thread? Be still my heart!",
+    "indent_level": 2,
+    "parent_id": "7875768",
+    "root_id": "7874979"
+  },
+  {
+    "id": "7883559",
+    "username": "vdijkbas",
+    "timestamp": "2014-06-12T14:23:09",
+    "text": "Also see the slides of Simon's talk at ZuriHac 2014 last weekend:\n[http://www.haskell.org/haskellwiki/ZuriHac2014#Talk_by_Simon...](http://www.haskell.org/haskellwiki/ZuriHac2014#Talk_by_Simon_Marlow)",
+    "indent_level": 1,
+    "parent_id": "7874979",
+    "root_id": null
+  },
+  {
+    "id": "7874326",
+    "username": "lbrandy",
+    "timestamp": "2014-06-10T18:13:58",
+    "text": "Hi. I'm one of the engineers who has worked on this so if anyone has any specific questions I can help answer and/or get someone to answer.\nAs said by @nbm, we also have a blog post up: [https://code.facebook.com/posts/302060973291128/open-sourcin...](https://code.facebook.com/posts/302060973291128/open-sourcing-haxl-a-library-for-haskell/).",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7874357",
+    "username": "Igglyboo",
+    "timestamp": "2014-06-10T18:18:07",
+    "text": "I had no idea you guys used Haskell at FB. Other than Haxl, what are your main use cases for Haskell?",
+    "indent_level": 1,
+    "parent_id": "7874326",
+    "root_id": null
+  },
+  {
+    "id": "7874512",
+    "username": "simonmar",
+    "timestamp": "2014-06-10T18:43:43",
+    "text": "Haxl is the only major project at FB using Haskell right now, but who knows where this will lead?",
+    "indent_level": 2,
+    "parent_id": "7874357",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7874404",
+    "username": "evmar",
+    "timestamp": "2014-06-10T18:24:23",
+    "text": "Have you replaced all use of FXL with Haxl?  Or are both languages supported?  In the latter case, what is the relative proportion of each in the live codebase?\n(I appreciate that migrating code that already works to a new language often just introduces bugs for no gain, so please don't take my questions as trying to dig up dirt or anything.  I'm genuinely just curious.)",
+    "indent_level": 1,
+    "parent_id": "7874326",
+    "root_id": null
+  },
+  {
+    "id": "7874493",
+    "username": "evincarofautumn",
+    "timestamp": "2014-06-10T18:41:17",
+    "text": "We are still in the process of migrating from FXL to Haxl, and there is too much FXL code to translate manually, so at the moment we are treating FXL as the source of truth, compiling the FXL codebase to Haskell, and running both concurrently to verify correctness.",
+    "indent_level": 2,
+    "parent_id": "7874404",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7874501",
+    "username": "awda",
+    "timestamp": "2014-06-10T18:42:04",
+    "text": "Why Haskell?",
+    "indent_level": 1,
+    "parent_id": "7874326",
+    "root_id": null
+  },
+  {
+    "id": "7874537",
+    "username": "lbrandy",
+    "timestamp": "2014-06-10T18:48:49",
+    "text": "Ah, my favorite question.\nWe previously had a custom DSL and it outgrew it's DSL-ness. The DSL was really good at one thing (implicit concurrency and scheduling io), and bad at everything else (cpu, memory, debugging, tooling). The predecessor was wildly successful and created new problems. Once all those secondary concerns became first order, we didn't want to start building all this ecosystem stuff for our homemade DSL. We needed to go from DSL to, ya know, an L. So the question is which...\nIf you understand the central idea of Haxl, I don't know of any other language that would let you do what Haxl in Haskell does. The built in language support for building DSLs (hijacking the operators including applicative/monadic operations) -really- shines in this case. I would -love- to see haxl-like implicit concurrency in other languages that feel as natural and concise. Consider that a challenge. I thought about trying to do it in C++ for edification/pedagogical purposes but it's an absolutely brutal mess of templates and hackery. There may be a better way, though.",
+    "indent_level": 2,
+    "parent_id": "7874501",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7875859",
+    "username": "msie",
+    "timestamp": "2014-06-10T23:20:30",
+    "text": "Did you have a problem with namespace collisions of identical field names in records? Is that much of a problem in Haskell? How did you deal with them? Thanks.",
+    "indent_level": 3,
+    "parent_id": "7874537",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7875935",
+    "username": "thoughtpolice",
+    "timestamp": "2014-06-10T23:44:52",
+    "text": "To be completely honest, the namespace/module situation with Haskell could certainly be a _ton_ better, but after 8 years of it I can't ever remember a time when it was ever at the top of my mind as game-breaking. Occasionally quite annoying? Yes, most definitely. But I'd say there are more many more annoying things day to day, and in any case, it is certainly a tradeoff I'll put up with for the returns.\nThat said, GHC 7.10 will ship with a new extension called `OverloadedRecordFields` that will allow you to have identical record field names for different datatypes. Yay!",
+    "indent_level": 4,
+    "parent_id": "7875859",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7876023",
+    "username": "msie",
+    "timestamp": "2014-06-11T00:15:54",
+    "text": "Thanks! If it's not a pain in regular Haskell work then I'm relieved. Perhaps other data types are more prevalent in Haskell than records?",
+    "indent_level": 5,
+    "parent_id": "7875935",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7883696",
+    "username": "dllthomas",
+    "timestamp": "2014-06-12T14:50:02",
+    "text": "I agree with the parent that it is a pain, but not very much of one.  My pains in lacking other features when I move away from Haskell are far greater than my pains in name collision in Haskell.",
+    "indent_level": 6,
+    "parent_id": "7876023",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7876358",
+    "username": "imanaccount",
+    "timestamp": "2014-06-11T03:00:43",
+    "text": "I find records are used most heavily in web development, where you are pretty much just shuffling data from browsers to databases and the other way around.  But even there the field name thing doesn't pose much of a problem, I prefer defining my records in the module that handles the functions for it, so there's no issue with conflicting names anyways.  I found the fact that 'id' is a standard library function to be a bigger minor annoyance.",
+    "indent_level": 6,
+    "parent_id": "7876023",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7876013",
+    "username": "hythloday",
+    "timestamp": "2014-06-11T00:12:53",
+    "text": "I only skimmed the tutorial, but in Scala/Finagle:\n  val (friendsX, friendsY) = (friendsOf(x), friendsOf(y))\n  for {\n    fx <- friendsX\n    fy <- friendsY\n  } yield (fx intersect fy).size\n\nreally liking the look of this, thanks for open-sourcing!",
+    "indent_level": 3,
+    "parent_id": "7874537",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7876076",
+    "username": "lbrandy",
+    "timestamp": "2014-06-11T00:38:31",
+    "text": "As I understand this, this is an easy but still explicit concurrency construction, which is not what haxl does. It's easy to imagine how something like the toy example of friend-list-intersection could be converted to explicit concurrency in languages with good concurrency support. This is an easy optimization to make by hand in the cases where concurrency is obvious at some layer or within some abstraction. The power of haxl comes when the two (or whatever) requests come from wildly different places in the AST. For example, if you combine the result of friend-list-intersection with some other numeric quantity that's the result of some other fetches. Haxl essentially performs this optimization automatically, over the entire program.\nSomething like...\n    renderPage :: Haxl Html\n    renderPage = renderHeader + renderBody + renderRightPane + renderFooter\n\nThis will travel as far as possible through all paths in the  AST collecting all IO to be performed in the first round (which, once fetched, will unblock more of the AST, and the process repeats until we have an answer).",
+    "indent_level": 4,
+    "parent_id": "7876013",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7874610",
+    "username": "lukasm",
+    "timestamp": "2014-06-10T19:01:08",
+    "text": "How about Scala?",
+    "indent_level": 3,
+    "parent_id": "7874537",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7874833",
+    "username": "coolsunglasses",
+    "timestamp": "2014-06-10T19:39:07",
+    "text": "Anybody that's made a serious go of FP in Scala (applicative, monad, etc) has found that it's not worth the hassle. It fights you the whole way.",
+    "indent_level": 4,
+    "parent_id": "7874610",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7875421",
+    "username": "tormeh",
+    "timestamp": "2014-06-10T21:27:20",
+    "text": "Scalaz?",
+    "indent_level": 5,
+    "parent_id": "7874833",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7875437",
+    "username": "coolsunglasses",
+    "timestamp": "2014-06-10T21:31:14",
+    "text": "I hang out with the Scalazzi and authors of FP in Scala on IRC. Most of them, including the original creator, would rather write Haskell and some are doing just that.",
+    "indent_level": 6,
+    "parent_id": "7875421",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7876701",
+    "username": "psibi",
+    "timestamp": "2014-06-11T06:21:23",
+    "text": "I think Scalaz is a pathway to Haskell. When people start loving Scalaz, they just happen to migrate to Haskell.",
+    "indent_level": 6,
+    "parent_id": "7875421",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7875764",
+    "username": "emmelaich",
+    "timestamp": "2014-06-10T22:56:03",
+    "text": "You would only choose Scala over Haskell if the pros (having the java library and running under the jvm) outweigh the cons (having the java library and running under the jvm) :-)",
+    "indent_level": 4,
+    "parent_id": "7874610",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7875832",
+    "username": "lukasm",
+    "timestamp": "2014-06-10T23:13:16",
+    "text": "I would choose OCaml, but you made a good point. 10 internets for you, sir.",
+    "indent_level": 5,
+    "parent_id": "7875764",
+    "root_id": "7874326"
+  },
+  {
+    "id": "7874265",
+    "username": "nbm",
+    "timestamp": "2014-06-10T18:06:05",
+    "text": "The release blog post is here - [https://code.facebook.com/posts/302060973291128/open-sourcin...](https://code.facebook.com/posts/302060973291128/open-sourcing-haxl-a-library-for-haskell/)\nIt contains a lot more information about the problem it was originally created to solve, and potential other use cases.",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7874336",
+    "username": "JonCoens",
+    "timestamp": "2014-06-10T18:15:55",
+    "text": "I'm an engineer on the Haxl project and am really excited to launch this today.\nAsk me anything!",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7877028",
+    "username": "X4",
+    "timestamp": "2014-06-11T08:58:15",
+    "text": "Are you employing the ideas behind reactive programming? And can you explain the types of monads you used for what problem and why? I am writing a paper on Functional Reactive Programming and Haxl really made me curious. The paper (currently in german, but I'll translate it) proposes a new Hypothesis that tries to shred FRP in general, by showing a novel way that solves some of the problems automatically that naturally occur with FRP.\nI am really interested in seeing how you solve problems for distributed systems with Haxl and how query sharding is handled etc..\nI've wasted a whole day looking for Haxl online a few weeks ago, just to find out that it wasn't released yet. The release really makes me happy :)",
+    "indent_level": 1,
+    "parent_id": "7874336",
+    "root_id": null
+  },
+  {
+    "id": "7879226",
+    "username": "JonCoens",
+    "timestamp": "2014-06-11T17:31:41",
+    "text": "This is in a similar space to reactive programming, but isn't reactive at its core.\nThe best explanation of the monad we use developed is described in the paper here: [http://community.haskell.org/~simonmar/papers/haxl-icfp14.pd...](http://community.haskell.org/~simonmar/papers/haxl-icfp14.pdf)\nQuery sharding is at the data source layer, which Haxl doesn't delve into. It's up to each data source integration with Haxl to do the appropriate routing/etc.\nHope you find it useful!",
+    "indent_level": 2,
+    "parent_id": "7877028",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7874489",
+    "username": "ciferkey",
+    "timestamp": "2014-06-10T18:41:00",
+    "text": "How large has the haskell team at Facebook gotten (unless there isn't an official group and its on a project by project bases)?",
+    "indent_level": 1,
+    "parent_id": "7874336",
+    "root_id": null
+  },
+  {
+    "id": "7874564",
+    "username": "JonCoens",
+    "timestamp": "2014-06-10T18:52:05",
+    "text": "Haxl is the only team using Haskell in prod, so the team itself isn't all that large. With the traction we gain, though, we could grow.",
+    "indent_level": 2,
+    "parent_id": "7874489",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7875476",
+    "username": "SkyMarshal",
+    "timestamp": "2014-06-10T21:37:59",
+    "text": "Is Bryan O'Sullivan and the team from his Haskell-based startup Facebook acquired in 2011 still there?  I sat in on a class of his a while back and remember him ruefully laughing about having to use PHP now.",
+    "indent_level": 3,
+    "parent_id": "7874564",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7875496",
+    "username": "nbm",
+    "timestamp": "2014-06-10T21:41:37",
+    "text": "Bryan is still here.  He's actually kicking off a Haskell class within Facebook at the moment - [https://twitter.com/bos31337/status/475335956556705792](https://twitter.com/bos31337/status/475335956556705792)",
+    "indent_level": 4,
+    "parent_id": "7875476",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7885923",
+    "username": "SkyMarshal",
+    "timestamp": "2014-06-12T21:03:32",
+    "text": "Great!  He's obviously a great advocate for Haskell at Facebook.",
+    "indent_level": 5,
+    "parent_id": "7875496",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7874718",
+    "username": "Touche",
+    "timestamp": "2014-06-10T19:20:11",
+    "text": "I'm confused, Haxl is an open source library, right? So what are you using Haxl for at facebook?",
+    "indent_level": 3,
+    "parent_id": "7874564",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7874881",
+    "username": "nbm",
+    "timestamp": "2014-06-10T19:51:41",
+    "text": "The blog post - [https://code.facebook.com/posts/302060973291128/open-sourcin...](https://code.facebook.com/posts/302060973291128/open-sourcing-haxl-a-library-for-haskell/) - describes the initial usage - to assist the Sigma system in answering questions like \"Is this content spam?\".\nSome background on that system, including the FXL component that Haxl replaces, is here: [http://research.microsoft.com/en-us/projects/ldg/a10-stein.p...](http://research.microsoft.com/en-us/projects/ldg/a10-stein.pdf)",
+    "indent_level": 4,
+    "parent_id": "7874718",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7874955",
+    "username": "tveita",
+    "timestamp": "2014-06-10T20:02:15",
+    "text": "I'm curious how this is executed.\nIs it like a query engine, where you work with the entire query up-front, apply transforms and build a query plan?\nOr is it more like an event loop, where you run as far as you can until the code blocks on IO, batch up and send all the pending IO requests, and run further when the tasks you're blocked on resolve?",
+    "indent_level": 1,
+    "parent_id": "7874336",
+    "root_id": null
+  },
+  {
+    "id": "7875031",
+    "username": "lbrandy",
+    "timestamp": "2014-06-10T20:13:57",
+    "text": "Part of the beauty is that the actual way IO (note: in this version, IO here means 'reads from the network', almost always) is scheduled is abstracted away such that we could go with either approach w/o impacting client code.\nThat said, the way it currently works is more like the first. You can think of the entire haxl run (program) as an AST that is given to the execution. It expands as much of the AST as possible (anything that's not IO), and anywhere it needs IO it enqueues those requests to be scheduled. Once it's explored as much as possible, it aggressively schedules the IO (deduping, batching, and overlapping the calls). Once it all comes back, it unblocks the AST where it can, and repeats the process.\nThis isn't necessarily the optimal scheduling (as you point out, unblocking each part of the tree as each result comes in might be better). It was specifically designed to make it easy to play with this kind of stuff later. Since the concurrency is entirely implicit the implementation is entirely abstracted away.",
+    "indent_level": 2,
+    "parent_id": "7874955",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7876293",
+    "username": "fnord_murks",
+    "timestamp": "2014-06-11T02:25:56",
+    "text": "Have a look at the SQLTap service written by the guys from DaWanda.com ([https://github.com/paulasmuth/sqltap](https://github.com/paulasmuth/sqltap)). It does basically exactly that for SQL queries but is implemented as a standalone Java/Scala SQL proxy server.",
+    "indent_level": 3,
+    "parent_id": "7875031",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7874522",
+    "username": "nusbit",
+    "timestamp": "2014-06-10T18:45:31",
+    "text": "Is there any resources about why Facebook uses haskell? What's your experience?",
+    "indent_level": 1,
+    "parent_id": "7874336",
+    "root_id": null
+  },
+  {
+    "id": "7874549",
+    "username": "JonCoens",
+    "timestamp": "2014-06-10T18:50:15",
+    "text": "Our blog post goes into some of this: [https://code.facebook.com/posts/302060973291128/open-sourcin...](https://code.facebook.com/posts/302060973291128/open-sourcing-haxl-a-library-for-haskell/)\nInterpreted code was no longer cutting it for perf reasons, and any time you create your own language you end up reinventing the entire tool chain (debuggers, profilers, etc.). Haskell provides so much functionality in the language itself and has mature solutions to the other issues plaguing us in FXL, so it was a natural choice.",
+    "indent_level": 2,
+    "parent_id": "7874522",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7874554",
+    "username": "JonCoens",
+    "timestamp": "2014-06-10T18:50:49",
+    "text": "lbrandy also gives a good explanation here: [https://news.ycombinator.com/item?id=7874537](https://news.ycombinator.com/item?id=7874537)",
+    "indent_level": 2,
+    "parent_id": "7874522",
+    "root_id": "7874336"
+  },
+  {
+    "id": "7875967",
+    "username": "fiatjaf",
+    "timestamp": "2014-06-10T23:55:17",
+    "text": "[http://hackage.haskell.org/package/haxl](http://hackage.haskell.org/package/haxl)\nWhy do Haskell libraries on Hackage doesn't come even with a single example, getting started, how to use, quick start, nothing, really, just function declarations? This scares Haskell newbies.",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7876113",
+    "username": "m0nastic",
+    "timestamp": "2014-06-11T00:53:52",
+    "text": "The \"documentation\" on Hackage is almost universally just the haddock-generated files (which is why it's mostly just function declarations and type signatures).\nMost libraries list a \"Home Page\" that more often than not includes more useful documentation (Haxl's, for example, has the things you've mentioned).\nI concur, that most of the time, the documentation on Hackage isn't really sufficient, but I've found that for the most part I just use it to find the homepage, and then go there to read the actual documentation.\nI agree that it would be nice if everything was all in one place.",
+    "indent_level": 1,
+    "parent_id": "7875967",
+    "root_id": null
+  },
+  {
+    "id": "7883677",
+    "username": "dllthomas",
+    "timestamp": "2014-06-12T14:45:49",
+    "text": "\"I agree that it would be nice if everything was all in one place.\"\nI actually find \"distilled reference with links to source\" a fantastically valuable view.  I've no objection to providing some sort of combined view, but let's not lose what we have in a quest for consolidation.  I've no idea if that's what you meant or not, and don't mean to put words in your mouth of course, just expressing a concern.",
+    "indent_level": 2,
+    "parent_id": "7876113",
+    "root_id": "7875967"
+  },
+  {
+    "id": "7886062",
+    "username": "m0nastic",
+    "timestamp": "2014-06-12T21:27:24",
+    "text": "I agree it's hard to be all things to all people.\nI think fundamentally, Hackage is meant to be a centralized package repository. If you look at other similar projects, there seems to be no real consensus as to whether that should just be a launching-off point to the actual project page, or more inclusive.\nWhen I originally wrote this, I was going to say \"It's akin to CPAN\", but then to make sure I wasn't misremembering, I looked at a bunch of CPAN packages and saw that they were all actually fully-documented (with examples and whatnot).\nI think the advantage to having consolidation is that you can then at least try to enforce documentation standards (whether you should, is arguable). What's super frustrating is going to a Hackage page, finding the link to the project home page (frequently on GitHub), going to the GitHub page and then just seeing a barren directory listing of files.\nI feel slightly uncomfortable making statements about how Hackage should be set up however, as it's like going to a soup kitchen and then complaining about the specific soup they've decided to give you.  \"Oh, you mean this community resource we've set up which allows anyone to contribute a package and have it globally available doesn't provide exactly the functionality you'd like? Please tell me more about how the community can respond to your whims.\"\nAlso, for what it's worth, all the Haskell libraries that I make frequent use of tend to have very good documentation (you could argue that's HOW they end up becoming the ones I make frequent use of).",
+    "indent_level": 3,
+    "parent_id": "7883677",
+    "root_id": "7875967"
+  },
+  {
+    "id": "7878430",
+    "username": "tel",
+    "timestamp": "2014-06-11T15:18:09",
+    "text": "It's definitely suboptimal, especially for newbies. The standard response (which I agree with completely) is that the types make API documentation so much more valuable that it's less commonly a concern for advanced users. So there's a bit of a squeaky wheel problem compared with, for instance, Ruby where docs are completely required to understand most libraries even slightly.",
+    "indent_level": 1,
+    "parent_id": "7875967",
+    "root_id": null
+  },
+  {
+    "id": "7876368",
+    "username": "imanaccount",
+    "timestamp": "2014-06-11T03:06:12",
+    "text": "You mean \"this library\" not \"Haskell libraries\".  Some libraries have real documentation (either on hackage or off) to go with the API reference.\n[http://hackage.haskell.org/package/pipes-4.1.2/docs/Pipes-Tu...](http://hackage.haskell.org/package/pipes-4.1.2/docs/Pipes-Tutorial.html)\n[http://hackage.haskell.org/package/aeson-0.7.0.6/docs/Data-A...](http://hackage.haskell.org/package/aeson-0.7.0.6/docs/Data-Aeson.html)",
+    "indent_level": 1,
+    "parent_id": "7875967",
+    "root_id": null
+  },
+  {
+    "id": "7876881",
+    "username": "Kiro",
+    "timestamp": "2014-06-11T07:53:23",
+    "text": "The point is valid though. The lack of documentation/examples on most package pages made my learning experience a real hassle.",
+    "indent_level": 2,
+    "parent_id": "7876368",
+    "root_id": "7875967"
+  },
+  {
+    "id": "7877167",
+    "username": "klrr",
+    "timestamp": "2014-06-11T10:04:16",
+    "text": "In many cases a few examples and type signatures are enough for the intermediate Haskell user. Virtually all packages for Haskell are free software though, so you can of course contribute documentation if you feel there ain't enough, because obviously if the current Haskell users don't need more docs they won't write it.",
+    "indent_level": 3,
+    "parent_id": "7876881",
+    "root_id": "7875967"
+  },
+  {
+    "id": "7874981",
+    "username": "edofic",
+    "timestamp": "2014-06-10T20:05:57",
+    "text": "Slides from Marlow from 9 months ago about Haxl and it's workings [https://github.com/meiersi/HaskellerZ/blob/master/meetups/20...](https://github.com/meiersi/HaskellerZ/blob/master/meetups/20130829-FPAfternoon_The_Haxl_Project_at_Facebook/The%20Haxl%20Project%20at%20Facebook.pdf?raw=true)",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7874572",
+    "username": "EGreg",
+    "timestamp": "2014-06-10T18:53:08",
+    "text": "How do you guys batch requests in PHP? You don't, right? So this is an intermediate layer basically, and it sends requests every few millisecods and waits to batch things in between?",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7874925",
+    "username": "nbm",
+    "timestamp": "2014-06-10T19:57:09",
+    "text": "The systems described here isn't directly involved with any PHP code.\nLike all Facebook services, they are communicated with over the Thrift RPC system, and may have PHP (or any other language) clients, and may talk to other services using Thrift (or occasionally other protocols), some of which may use PHP.\nIf you're asking a general question about batching requests in PHP, [http://docs.hhvm.com/manual/en/hack.async.php](http://docs.hhvm.com/manual/en/hack.async.php) may be informative.",
+    "indent_level": 1,
+    "parent_id": "7874572",
+    "root_id": null
+  },
+  {
+    "id": "7874986",
+    "username": "EGreg",
+    "timestamp": "2014-06-10T20:06:44",
+    "text": "Cool so Hack supports async while php doesn't.",
+    "indent_level": 2,
+    "parent_id": "7874925",
+    "root_id": "7874572"
+  },
+  {
+    "id": "7876298",
+    "username": "fnord_murks",
+    "timestamp": "2014-06-11T02:29:27",
+    "text": "If you want to have similar query parallelization magic for PHP+SQL have a look at the standalone SQLTap service written by the guys from DaWanda.com ([https://github.com/paulasmuth/sqltap](https://github.com/paulasmuth/sqltap)).",
+    "indent_level": 1,
+    "parent_id": "7874572",
+    "root_id": null
+  },
+  {
+    "id": "7874251",
+    "username": "radnam",
+    "timestamp": "2014-06-10T18:04:32",
+    "text": "Cool ! Are there any alternatives out there, especially to deal with fault tolerance especially when if we want to establish connection with 100's of varied databases?",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7876711",
+    "username": "polskibus",
+    "timestamp": "2014-06-11T06:31:21",
+    "text": "How does the functionality of Haxl differ from a mature ORM system? I'm thinking about .NET Entity Framework + LINQ in particular since it not only does the mapping but also assists in query generation, scheduling.",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7876786",
+    "username": "mkesper",
+    "timestamp": "2014-06-11T07:11:29",
+    "text": "It would be cool if you could transform those tables into HTML tables. They would look prettier (not nice JPG noise) and would also be more accessible.",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7875192",
+    "username": "skyahead",
+    "timestamp": "2014-06-10T20:40:47",
+    "text": "are there similar things for iOS?",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7874563",
+    "username": "EGreg",
+    "timestamp": "2014-06-10T18:52:00",
+    "text": "[http://platform.qbix.com/guide/patterns](http://platform.qbix.com/guide/patterns) ;-)",
+    "indent_level": 0,
+    "parent_id": null,
+    "root_id": null
+  },
+  {
+    "id": "7875714",
+    "username": "ixmatus",
+    "timestamp": "2014-06-10T22:39:40",
+    "text": "You obviously don't understand what Haxl is for.",
+    "indent_level": 1,
+    "parent_id": "7874563",
+    "root_id": null
+  },
+  {
+    "id": "7880079",
+    "username": "EGreg",
+    "timestamp": "2014-06-11T19:54:41",
+    "text": "Why is that obvious to you? Do you care to explain your cryptic comment?",
+    "indent_level": 2,
+    "parent_id": "7875714",
+    "root_id": "7874563"
+  },
+  {
+    "id": "7880965",
+    "username": "ixmatus",
+    "timestamp": "2014-06-11T23:07:56",
+    "text": "Well, that project, Q just doesn't even share the same thesis of Haxl. At all. Two completely different projects, Q couldn't be used for what Haxl is intended.\nIf you had posted the link asking for a comparison, that would've been different, but your ignorance seemed obvious to me because of the haughty wink at the end of your posted link implying we were being let in on some kind of secret.",
+    "indent_level": 3,
+    "parent_id": "7880079",
+    "root_id": "7874563"
+  }
+]
