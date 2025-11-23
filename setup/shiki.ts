@@ -7,7 +7,8 @@ export default defineShikiSetup(() => {
       'js',
       'java',
       'python',
-      'haskell'
+      'haskell',
+      'sql',
     ],
     transformers: [
       // ...
