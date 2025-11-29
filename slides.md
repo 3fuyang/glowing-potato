@@ -159,7 +159,7 @@ The framework that solves these problems (almost).
 
 # Concurrency
 
-You know good about concurrency:
+You know well about concurrency:
 
 <div class="flex flex-col gap-4">
   <div class="flex gap-4 justify-between">
@@ -269,7 +269,7 @@ graph LR
 
 </p>
 
-The first two steps are side-effects free.
+The first two steps are <span class="underline decoration-blue-500 decoration-2 underline-offset-4">side-effects free</span>.
 
 </v-clicks>
 
